@@ -19,21 +19,17 @@ def printMenu():
 
 def chooseFood():
   global choice
-  global tax
   choice = int(input())
   match choice:
     case 1:
       choice = 6
-      tax = 0.75
       print(f"{menuList[0]} {menuPrices[0]} ".strip() + e)
 
     case 2:
       choice = 10
-      tax = 1.75
       print(f"{menuList[1]}, {menuPrices[1]}".strip() + e)
     case 3:
       choice = 4
-      tax = 0.45
       print(f"{menuList[2]}, {menuPrices[2]}".strip() + e)
     case _:
       print("Not a valid item!")
@@ -45,9 +41,11 @@ def getTotal():  #calculates total
   global total
   print("*******************************")
   quantity = int(input("How many would you like?: "))
+  tax = quantity/3
+  tax = round(tax)
   subtotal = choice * quantity
   print(f"Your subtotal is {subtotal}")
-  print(tax)
+  print(f"Tax: {tax}")
   total = choice * quantity + tax
   print(f"So your total is: {total}")
 
